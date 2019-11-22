@@ -3,24 +3,28 @@ FROM amazonlinux:latest
 MAINTAINER yuce sungur <deney.io.ys@gmail.com>
 # docker build environments
 ENV CONFIG_PATH="/opt/janus/etc/janus"
+RUN  amazon-linux-extras install epel
 RUN \
     yum install deltarpm -y \
-    && amazon-linux-extras install epel \
     && yum install git mlocate gcc gcc-c++ libtool autoconf automake doxygen graphviz cmake  -y \ 
     && yum install glib2-devel -y \
     && yum install pkgconfig -y \
-    && yum install gengetopt  -y \ 
+RUN \    
+    yum install gengetopt  -y \ 
     && yum install jansson-devel -y \
     && yum install libconfig-devel -y \
     && yum install libnice-devel -y \
-    && yum install openssl-devel -y \
+RUN  \
+    yum install openssl-devel -y \
     && yum install libmicrohttpd-devel -y \
     && yum install libwebsockets-devel -y \
     && yum install paho-c-devel -y \
-    && yum install opus-devel -y \
+RUN \
+    yum install opus-devel -y \
     && yum install libogg-devel -y \
     && yum install libcurl-devel -y \
-    && yum install lua-devel -y \
+RUN \    
+    yum install lua-devel -y \
     && yum install npm -y \
     && yum install wget -y \
     && yum install unzip -y \
